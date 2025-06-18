@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 import os
 
 app = Flask(__name__)
@@ -37,14 +37,21 @@ def index():
 
 @app.route("/details")
 def details():
-    return render_template("calc_details.html")
+    return render_template("section_4_1.html")
 
-@app.route("/section/<name>")
+@app.route("/section/section_1_1", methods=["GET"])
+def section_1_1_view():
+    return redirect(url_for('index'))
+
+@app.route("/section/<name>", methods=["GET", "POST"])
 def section(name):
     try:
-        return render_template(f"{name}.html")
-    except:
-        return "Шаблон не знайдено", 404
+        template_file = f"{name}.html"
+        print(f"[DEBUG] Rendering template: {template_file}")
+        return render_template(template_file)
+    except Exception as e:
+        print(f"[ERROR] Failed to load template '{template_file}': {e}")
+        return f"Шаблон не знайдено: {template_file}", 404
 
 if __name__ == "__main__":
     os.makedirs("static", exist_ok=True)

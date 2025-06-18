@@ -2,7 +2,10 @@
 {% block title %}1.3 Конструктивні параметри оптимізаційного розрахунку{% endblock %}
 
 {% block content %}
-<h1 class="mt-4">1.3 Конструктивні параметри оптимізаційного розрахунку</h1>
+{% raw %}
+
+<div class="container py-4">
+    <h1 class="mt-4">1.3 Конструктивні параметри оптимізаційного розрахунку</h1>
 
     <p>Ширина приведеного каналу розсіювання:</p>
     <p>$$ a_р = a_{12} + a_{об12} \tag{1.10} $$</p>
@@ -67,10 +70,8 @@
     <p>$$ x_j = 4.5 \cdot 10^6 \cdot 2.4 \cdot 10^{-12} = 1.467 \tag{1.32} $$</p>
 
     <p>$$ x_\sigma = \frac{3 M}{60} = \frac{3 \cdot 17.532}{60} = 1.507 \tag{1.33} $$</p>
-
-    {% from "nav_buttons.html" import nav %}
-    {{ nav("section_1_2", "section_1_4") }}
-    <div>
-        <p></p>
-    </div>
-    {% endblock %}
+</div>
+{% endraw %}
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_1_2", "section_1_4") }}
+{% endblock %}
