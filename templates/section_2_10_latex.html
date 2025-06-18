@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>2.10 Розрахунок втрат неробочого ходу</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<h2>2.10 Розрахунок втрат неробочого ходу</h2>
+
+<p>Індукція в стрижні:</p>
+<p>$$ B_c = \frac{u_в}{4.44 \cdot f \cdot \Pi_c} = \frac{21.956}{4.44 \cdot 50 \cdot 0.06188} = 1.598 \, \text{Тл} \tag{2.119} $$</p>
+
+<p>Індукція в ярмі:</p>
+<p>$$ B_я = \frac{u_в}{4.44 \cdot f \cdot \Pi_я} = \frac{21.956}{4.44 \cdot 50 \cdot 0.0628} = 1.575 \, \text{Тл} \tag{2.120} $$</p>
+
+<p>Індукція косого стику:</p>
+<p>$$ B_кос = \frac{B_c}{2} = \frac{1.598}{2} = 1.13 \, \text{Тл} \tag{2.121} $$</p>
+
+<p>Площа перерізу стрижня на косому стику:</p>
+<p>$$ \Pi_кос = 2 \cdot \Pi_c = 2 \cdot 0.0619 = 0.088 \, \text{м}^2 \tag{2.122} $$</p>
+
+<p>Втрати неробочого ходу:</p>
+<p>
+$$
+\begin{aligned}
+P_х &= k_{пр} k_{пз} \cdot p_c G_c + p_я G'_я + 4 p_я G_у \\
+&+ 0.5(p_c + p_я) \cdot k_{пу} \cdot G_у \\
+&+ n'_з \cdot \Pi_{кос} \cdot p_{1кос} + n''_з \cdot \Pi_c \cdot p_{1сз} \\
+&\quad \cdot k_{пя} \cdot k_{пп} \cdot k_{пш} \\
+&= 1.05 \cdot 1.0 \cdot 1.146 \cdot 1401.907 + 1.102 \cdot 1115.784 \\
+&+ 4 \cdot 1.102 \cdot 119.972 + 0.5 (1.146 + 1.102) \cdot 9.74 \cdot 119.972 \\
+&+ 5 \cdot 0.08751 \cdot 334.646 + 1 \cdot 0.0619 \cdot 643.629 \\
+&\quad \cdot 1 \cdot 1.025 \cdot 1.04 \\
+&= 4252.405 \, \text{Вт}
+\end{aligned}
+\tag{2.123}
+$$
+</p>
+
+<p>Відхилення від заданого значення (не перевищує +7.5%):</p>
+<p>
+$$
+\Delta P = \frac{P_х - p_х}{p_х} \cdot 100 = \frac{4252.405 - 5100}{5100} \cdot 100 = -16.62\% \tag{2.124}
+$$
+</p>
+
+</body>
+</html>

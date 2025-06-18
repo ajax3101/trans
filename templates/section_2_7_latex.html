@@ -1,0 +1,27 @@
+
+<h2 class="mt-5">Розділ 2.7 – Оцінка динамічної стійкості обмоток при короткому замиканні</h2>
+<div class="bg-white p-4 shadow-sm rounded">
+
+<h4>Струм короткого замикання:</h4>
+<p>$$ S_k = 2500 \cdot 10^3\, \text{ВА} $$</p>
+<p>$$ I_{\text{ку}} = \frac{100 \cdot I_{ф2}}{u'_k} \cdot \left(1 + \frac{u'_k \cdot S_k}{100 \cdot S} \right) = \frac{100 \cdot 104.592}{5.953} \cdot \left(1 + \frac{5.953 \cdot 2500 \cdot 10^3}{100 \cdot 2500} \right) = 1727.885\, \text{А} \tag{2.98} $$</p>
+
+<h4>Миттєвий максимальний струм:</h4>
+<p>$$ k_{max} = 1 + \frac{e^{-\pi \cdot u_a}}{u_r} = 1 + \frac{e^{-\pi \cdot 0.945}}{5.878} = 1.603 \tag{2.99} $$</p>
+<p>$$ i_{кmax} = k_{max} \cdot \sqrt{2} \cdot I_{ку} = 1.603 \cdot 2 \cdot 1727.885 = 3917.943\, \text{А} \tag{2.100} $$</p>
+
+<h4>Радіальна сила в обмотках:</h4>
+<p>$$ F_p = 0.628 \cdot i_{кmax}^2 \cdot w_{н2} \cdot \beta \cdot k_p \cdot 10^{-6} = 0.628 \cdot (3917.943)^2 \cdot 363 \cdot 1.768 \cdot 0.98 \cdot 10^{-6} = 2.201 \cdot 10^6\, \text{Н} \tag{2.101} $$</p>
+
+<h4>Розтягувальна та стискаюча напруга:</h4>
+<p>$$ \sigma_{рp} = \frac{F_p}{2 \pi \cdot w_{н2} \cdot \Pi_2} = \frac{2.201 \cdot 10^6}{2 \pi \cdot 363 \cdot 31 \cdot 10^{-6}} = 31.123 \cdot 10^6\, \text{Па} \tag{2.102} $$</p>
+<p>$$ \sigma_{сжp} = \frac{F_p}{2 \pi \cdot w_1 \cdot \Pi_1} = \frac{2.201 \cdot 10^6}{2 \pi \cdot 501 \cdot 21.9 \cdot 10^{-6}} = 31.921 \cdot 10^6\, \text{Па} \tag{2.103} $$</p>
+
+<h4>Сили по осі:</h4>
+<p>$$ F'_{ос} = \frac{F_p \cdot a_p}{2 \cdot l_1} = \frac{2.201 \cdot 10^6 \cdot 0.05}{2 \cdot 0.751} = 72.838 \cdot 10^3\, \text{Н}, \quad F''_{ос} = 0 \tag{2.104} $$</p>
+<p>$$ F_{ст} = F'_{ос} = 72.838 \cdot 10^3\, \text{Н} \tag{2.104} $$</p>
+
+<h4>Максимальна стискаюча напруга:</h4>
+<p>$$ \sigma_{сж} = \frac{F_{ст}}{n_p \cdot a_{нн} \cdot b_{пр}} = \frac{72.838 \cdot 10^3}{12 \cdot 0.03 \cdot 0.05} = 4.087 \cdot 10^6\, \text{Па} \tag{2.105} $$</p>
+
+</div>

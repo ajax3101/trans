@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1 Тепловий розрахунок обмоток</title>
+    <script type="text/javascript" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+<h2>3.1 Тепловий розрахунок обмоток</h2>
+
+<p>Товщина ізоляції дроту на одну сторону: \( \delta = 250 \cdot 10^{-6} \, 	ext{м} \)</p>
+<p>Теплопровідність паперової ізоляції: \( \lambda_{из} = 0.17 \, 	ext{Вт/(м \cdot ^\circ C)} \)</p>
+
+<h3>Внутрішні перепади температур</h3>
+<p>Обмотка НН: 
+$$ \Theta_{о1} = \frac{q_1 \cdot \delta}{\lambda_{из}} = \frac{743.23 \cdot 250 \cdot 10^{-6}}{0.17} = 1.093 \, ^\circ C $$</p>
+
+<p>Обмотка ВН:
+$$ \Theta_{о2} = \frac{q_2 \cdot \delta}{\lambda_{из}} = \frac{1380.232 \cdot 250 \cdot 10^{-6}}{0.17} = 2.03 \, ^\circ C $$</p>
+
+<p>Обмотка PO:
+$$ \Theta_{о3} = \frac{q_3 \cdot \delta}{\lambda_{из}} = \frac{254.891 \cdot 250 \cdot 10^{-6}}{0.17} = 0.375 \, ^\circ C $$</p>
+
+<h3>Перепади температур на поверхні обмоток</h3>
+<p>Обмотка НН:
+$$ \Theta_{ом1} = \frac{k_1 k_2 k_3 \cdot 0.35 \cdot q_1}{0.6} = \frac{1 \cdot 1.1 \cdot 0.85 \cdot 0.35 \cdot 743.23}{0.6} = 17.28 \, ^\circ C $$</p>
+
+<p>Обмотка ВН:
+$$ \Theta_{ом2} = \frac{1 \cdot 1.1 \cdot 0.9 \cdot 0.35 \cdot 1380.232}{0.6} = 25.052 \, ^\circ C $$</p>
+
+<p>Обмотка PO:
+$$ \Theta_{ом3} = k \cdot q_3^{0.6} = 0.285 \cdot 254.891^{0.6} = 7.919 \, ^\circ C $$</p>
+
+<h3>Повні перепади температур</h3>
+<p>НН:
+$$ \Theta_{омср1} = \Theta_{о1} + \Theta_{ом1} = 1.093 + 17.28 = 18.373 \, ^\circ C $$</p>
+
+<p>ВН:
+$$ \Theta_{омср2} = \Theta_{о2} + \Theta_{ом2} = 2.03 + 25.052 = 27.08 \, ^\circ C $$</p>
+
+<p>PO:
+$$ \Theta_{омср3} = \Theta_{о3} + \Theta_{ом3} = 0.375 + 7.919 = 8.29 \, ^\circ C $$</p>
+
+</body>
+</html>

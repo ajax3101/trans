@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Розділ 2.12 (частина b) – Векторна діаграма</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        h1, h2 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background-color: #f4f4f4; }
+        img { max-width: 100%; height: auto; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+<h1>Розділ 2.12 (частина b): Розрахунок характеристик при зміні навантаження</h1>
+
+<h2>Формули (2.158)–(2.167)</h2>
+
+<p>$$ \Delta u_{ka} = \beta \cdot u \cdot \cos \varphi_2 \tag{2.158} $$</p>
+<p>$$ \Delta u_{kp} = \beta \cdot u \cdot \sin \varphi_2 \tag{2.159} $$</p>
+<p>$$ \Delta u_k = \Delta u_{ka} + \Delta u_{kp} \tag{2.160} $$</p>
+<p>$$ u_2 = 100 - \Delta u_k \tag{2.161} $$</p>
+
+<p>$$ U_{1ka} = \frac{U_{1k} \cdot u_a}{100} = \frac{474.318 \cdot 0.945}{100} = 4.484 \ \text{В} \tag{2.162} $$</p>
+<p>$$ U_{1kp} = \frac{U_{1k} \cdot u_p}{100} = \frac{474.318 \cdot 5.878}{100} = 27.879 \ \text{В} \tag{2.163} $$</p>
+<p>$$ \Delta U_{1ka} = \beta \cdot U_{1ka} \cdot \cos \varphi_2 \tag{2.164} $$</p>
+<p>$$ \Delta U_{1kp} = \beta \cdot U_{1kp} \cdot \sin \varphi_2 \tag{2.165} $$</p>
+<p>$$ \Delta U_k = \Delta U_{1ka} + \Delta U_{1kp} \tag{2.166} $$</p>
+<p>$$ U_2 = U_2 - \Delta U_k \tag{2.167} $$</p>
+
+<h2>Таблиця 2.3 – Зовнішні характеристики та падіння напруги у вольтах</h2>
+<table>
+    <tr><th>β</th><th>U2(RL), B</th><th>U2(R), B</th><th>U2(RC), B</th><th>ΔU2(RL), B</th><th>ΔU2(R), B</th><th>ΔU2(RC), B</th></tr>
+    <tr><td>0</td><td>13800</td><td>13800</td><td>13800</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>0.25</td><td>13797.52</td><td>13798.88</td><td>13800.29</td><td>2.48</td><td>1.12</td><td>-0.29</td></tr>
+    <tr><td>0.5</td><td>13795.03</td><td>13797.76</td><td>13800.57</td><td>4.97</td><td>2.24</td><td>-0.57</td></tr>
+    <tr><td>0.75</td><td>13792.55</td><td>13796.64</td><td>13800.86</td><td>7.45</td><td>3.36</td><td>-0.86</td></tr>
+    <tr><td>1</td><td>13790.07</td><td>13795.52</td><td>13801.14</td><td>9.93</td><td>4.48</td><td>-1.14</td></tr>
+    <tr><td>1.25</td><td>13787.58</td><td>13794.4</td><td>13801.43</td><td>12.42</td><td>5.6</td><td>-1.43</td></tr>
+</table>
+
+<h2>Таблиця 2.4 – Зовнішні характеристики та падіння напруги у відсотках</h2>
+<table>
+    <tr><th>β</th><th>U2(RL), %</th><th>U2(R), %</th><th>U2(RC), %</th><th>ΔU2(RL), %</th><th>ΔU2(R), %</th><th>ΔU2(RC), %</th></tr>
+    <tr><td>0</td><td>100</td><td>100</td><td>100</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td>0.25</td><td>99.48</td><td>99.76</td><td>100.06</td><td>0.52</td><td>0.24</td><td>-0.06</td></tr>
+    <tr><td>0.5</td><td>98.95</td><td>99.53</td><td>100.12</td><td>1.05</td><td>0.47</td><td>-0.12</td></tr>
+    <tr><td>0.75</td><td>98.43</td><td>99.29</td><td>100.18</td><td>1.57</td><td>0.71</td><td>-0.18</td></tr>
+    <tr><td>1</td><td>97.91</td><td>99.05</td><td>100.24</td><td>2.09</td><td>0.95</td><td>-0.24</td></tr>
+    <tr><td>1.25</td><td>97.38</td><td>98.82</td><td>100.3</td><td>2.62</td><td>1.18</td><td>-0.3</td></tr>
+</table>
+
+<h2>Графіки</h2>
+<p><strong>Рисунок 2.3:</strong> Зовнішні характеристики у відсотках</p>
+<img src="graph_2_3.png" alt="Графік 2.3">
+
+<p><strong>Рисунок 2.4:</strong> Падіння напруги у відсотках</p>
+<img src="graph_2_4.png" alt="Графік 2.4">
+
+<p><strong>Рисунок 2.5:</strong> Зовнішні характеристики у вольтах</p>
+<img src="graph_2_5.png" alt="Графік 2.5">
+
+<p><strong>Рисунок 2.6:</strong> Падіння напруги у вольтах</p>
+<img src="graph_2_6.png" alt="Графік 2.6">
+
+</body>
+</html>

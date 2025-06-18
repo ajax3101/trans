@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Розширений розрахунок трансформатора</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body class="bg-light text-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Трансформатор</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Головна</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ url_for('details') }}">Розширені
+                            розрахунки</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <h1 class="mb-4">Розширений розрахунок: обмотки НН/ВН, втрати, геометрія</h1>
+
+        <h3 class="mt-4">Графік: маса компонент в залежності від β</h3>
+        <img src="{{ url_for('static', filename='img/graph_mass_vs_beta.png') }}" alt="Маса"
+            class="img-fluid mb-4 border">
+
+        <h3>Графік: втрати та струм неробочого ходу</h3>
+        <img src="{{ url_for('static', filename='img/graph_loss_vs_beta.png') }}" alt="Втрати"
+            class="img-fluid mb-4 border">
+
+        <h3>Графік: габарити трансформатора</h3>
+        <img src="{{ url_for('static', filename='img/graph_dims_vs_beta.png') }}" alt="Габарити"
+            class="img-fluid border">
+
+        <h2 class="mt-5">Формули з PDF (розділ 2.2–2.5)</h2>
+        <div class="bg-white p-4 shadow-sm rounded">
+            <p>$$ w_1 = \frac{U_{ф1}}{u_в} = \frac{11000}{21.98} = 501 $$</p>
+            <p>$$ w_2 = \frac{U_{ф2}}{u_в} = \frac{7967.43}{21.98} = 363 $$</p>
+            <p>$$ J_1 = \frac{I_{ф1}}{\Pi_1} = \frac{75.76}{21.9 \cdot 10^{-6}} = 3.46 \cdot 10^6 \, \text{А/м}^2 $$</p>
+            <p>$$ J_2 = \frac{I_{ф2}}{\Pi_2} = \frac{104.59}{31 \cdot 10^{-6}} = 3.37 \cdot 10^6 \, \text{А/м}^2 $$</p>
+            <p>$$ D'_1 = d + 2 a_{01} = 0.3 + 2 \cdot 0.0175 = 0.335 \, \text{м} $$</p>
+            <p>$$ D''_1 = D'_1 + 2 a_{нн} = 0.335 + 2 \cdot 0.03 = 0.394 \, \text{м} $$</p>
+        </div>
+
+        <h2 class="mt-5">Розділ 2.4 – Розрахунок регулювальної обмотки (РО)</h2>
+        <div class="bg-white p-4 shadow-sm rounded">
+
+            <p>Кількість рівнів регулювання: \( n_p = 6 \) вище і 6 нижче номінального</p>
+
+            <p>Напруга одного рівня регулювання при \( U\% = 0.015 \):</p>
+            <p>$$ \Delta U = \frac{U_2}{\sqrt{3}} \cdot U\% = \frac{13800}{\sqrt{3}} \cdot 0.015 = 119.512\, \text{В}
+                \tag{2.50} $$</p>
+
+            <p>Число витків на одному ступені:</p>
+            <p>$$ w_c = \frac{\Delta U}{u_{в}} = \frac{119.512}{21.956} = 5.443 \rightarrow \text{приймаємо } 6
+                \tag{2.51} $$</p>
+
+            <p>Фазна напруга одного рівня регулювання:</p>
+            <p>$$ \Delta U_{ф} = u_{в} \cdot w_c = 21.956 \cdot 6 = 131.737\, \text{В} \tag{2.52} $$</p>
+
+            <p>Загальна кількість витків РО:</p>
+            <p>$$ w_{\Sigma} = w_c \cdot n_p = 6 \cdot 6 = 36\, \text{витків} \tag{2.53} $$</p>
+
+            <p>Число витків в одному прошарку:</p>
+            <p>$$ w_ш = \frac{l_2}{b'_2 \cdot n_{в2}} = \frac{0.749}{0.0076 \cdot 2} = 48.262 \rightarrow
+                \text{приймаємо } 48 \tag{2.54} $$</p>
+
+            <p>Число прошарків:</p>
+            <p>$$ n_ш = \frac{w_{\Sigma}}{w_ш} = \frac{36}{48} = 0.75 \rightarrow \text{приймаємо } 1 \tag{2.55} $$</p>
+
+            <p>Осьовий розмір обмотки:</p>
+            <p>$$ l_3 = b'_2 \cdot n_{в2} \cdot (w_{\Sigma} + 1) = 0.0076 \cdot 2 \cdot 37 = 0.562\, \text{м} \tag{2.56}
+                $$</p>
+
+        </div>
+        <h2 class="mt-5">Таблиця 2.1 – Ступені регулювання обмотки</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-sm text-center bg-white shadow-sm">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Ступінь</th>
+                        <th>U<sub>ф2</sub>, В</th>
+                        <th>Витки</th>
+                        <th>K<sub>uф</sub></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>+6</td>
+                        <td>8770.078</td>
+                        <td>399</td>
+                        <td>0.797</td>
+                    </tr>
+                    <tr>
+                        <td>+5</td>
+                        <td>8650.566</td>
+                        <td>393</td>
+                        <td>0.786</td>
+                    </tr>
+                    <tr>
+                        <td>+4</td>
+                        <td>8531.055</td>
+                        <td>387</td>
+                        <td>0.776</td>
+                    </tr>
+                    <tr>
+                        <td>+3</td>
+                        <td>8411.543</td>
+                        <td>381</td>
+                        <td>0.765</td>
+                    </tr>
+                    <tr>
+                        <td>+2</td>
+                        <td>8292.032</td>
+                        <td>375</td>
+                        <td>0.754</td>
+                    </tr>
+                    <tr>
+                        <td>+1</td>
+                        <td>8172.520</td>
+                        <td>369</td>
+                        <td>0.743</td>
+                    </tr>
+                    <tr>
+                        <td>Uном</td>
+                        <td>8053.009</td>
+                        <td>363</td>
+                        <td>0.732</td>
+                    </tr>
+                    <tr>
+                        <td>-1</td>
+                        <td>7933.497</td>
+                        <td>357</td>
+                        <td>0.721</td>
+                    </tr>
+                    <tr>
+                        <td>-2</td>
+                        <td>7813.986</td>
+                        <td>351</td>
+                        <td>0.710</td>
+                    </tr>
+                    <tr>
+                        <td>-3</td>
+                        <td>7694.474</td>
+                        <td>345</td>
+                        <td>0.699</td>
+                    </tr>
+                    <tr>
+                        <td>-4</td>
+                        <td>7574.963</td>
+                        <td>339</td>
+                        <td>0.689</td>
+                    </tr>
+                    <tr>
+                        <td>-5</td>
+                        <td>7455.451</td>
+                        <td>333</td>
+                        <td>0.678</td>
+                    </tr>
+                    <tr>
+                        <td>-6</td>
+                        <td>7335.940</td>
+                        <td>327</td>
+                        <td>0.667</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="mt-5">Додаткові формули з розділу 2.4</h3>
+        <div class="bg-white p-4 rounded shadow-sm">
+
+            <p>Радіальний розмір обмотки РО:</p>
+            <p>$$ a_{РО} = a'_2 \cdot n_ш = 0.00274 \cdot 1 = 0.00274\, \text{м} \tag{2.57} $$</p>
+
+            <p>Густина теплового потоку:</p>
+            <p>$$ q_3 = \frac{2 \cdot 10^7 \cdot J_2^2 \cdot b_2 \cdot a_2 \cdot k'_д}{k_з \cdot b'_2} = \frac{2 \cdot
+                10^7 \cdot (3.374 \cdot 10^6)^2 \cdot 0.0071 \cdot 0.00224 \cdot 1.05}{0.8 \cdot 0.0076} = 254.891\,
+                \text{Вт/м}^2 \tag{2.58} $$</p>
+
+            <p>Внутрішній діаметр обмотки:</p>
+            <p>$$ D'_3 = D''_2 + 2 \cdot a_{23} = 0.525 + 2 \cdot 0.01 = 0.545\, \text{м} \tag{2.59} $$</p>
+
+            <p>Зовнішній діаметр:</p>
+            <p>$$ D''_3 = D'_3 + 2 \cdot a_{РО} = 0.545 + 2 \cdot 0.0027 = 0.551\, \text{м} \tag{2.60} $$</p>
+
+            <p>Середній діаметр:</p>
+            <p>$$ D_{3c} = D'_3 + a_{РО} = 0.545 + 0.0027 = 0.548\, \text{м} \tag{2.61} $$</p>
+
+            <p>Маса металу обмотки РО:</p>
+            <p>$$ G_{о3} = 28 \cdot 10^3 \cdot m \cdot D_{3c} \cdot w_{\Sigma} \cdot \Pi_2 = 28 \cdot 10^3 \cdot 3 \cdot
+                0.548 \cdot 36 \cdot 31 \cdot 10^{-6} = 51.359\, \text{кг} \tag{2.62} $$</p>
+
+            <p>Маса дроту обмотки РО:</p>
+            <p>$$ G_{д3} = 1.025 \cdot G_{о3} = 1.025 \cdot 51.359 = 52.643\, \text{кг} \tag{2.63} $$</p>
+
+        </div>
+
+        <h2 class="mt-5">Розділ 2.6 – Розрахунок напруги короткого замикання</h2>
+        <div class="bg-white p-4 shadow-sm rounded">
+
+            <p>Активна складова напруги короткого замикання:</p>
+            <p>$$ u_a = \frac{P_k}{10 \cdot S} = \frac{23632.482}{10 \cdot 2500} = 0.945\% \tag{2.86} $$</p>
+
+            <p>Коефіцієнт Роговського по повздовжній осі:</p>
+            <p>$$ \sigma = \frac{a_{12} + a_{нн} + a_{вн}}{2 \pi \cdot l_1} = \frac{0.027 + 0.03 + 0.038}{2 \pi \cdot
+                0.751} = 0.02 \tag{2.88} $$</p>
+            <p>$$ k_r = \left(1 - \frac{1 - e^{-\sigma}}{\sigma} \right) = 0.98 \tag{2.87} $$</p>
+
+            <p>Середній діаметр каналу між обмотками НН та ВН:</p>
+            <p>$$ d_{12} = \frac{D''_1 + D'_2}{2} = \frac{0.394 + 0.448}{2} = 0.421\, \text{м} \tag{2.89} $$</p>
+
+            <p>Ширина приведеного каналу розсіювання:</p>
+            <p>$$ a_p = \frac{a_{нн} + a_{вн} + a_{12}}{3} = \frac{0.027 + 0.03 + 0.038}{3} = 0.05\, \text{м} \tag{2.90}
+                $$</p>
+
+            <p>Коефіцієнт Роговського по поперечній осі:</p>
+            <p>$$ l_x = l_1 - l_2 = 0.751 - 0.749 = 0.002\, \text{м} \tag{2.92} $$</p>
+            <p>$$ x = \frac{l_x}{l_1} = \frac{0.002}{0.751} \approx 0.00266 \tag{2.93} $$</p>
+            <p>$$ k_q = 1 + \frac{l_1 \cdot x^2}{m \cdot a_p \cdot k_r} = 1 + \frac{0.751 \cdot 0.002^2}{3 \cdot 0.05
+                \cdot 0.98} = 1.00003 \tag{2.91} $$</p>
+
+            <p>Коефіцієнт \( \beta \):</p>
+            <p>$$ \beta = \frac{\pi \cdot d_{12}}{l_2} = \frac{\pi \cdot 0.421}{0.749} = 1.768 \tag{2.94} $$</p>
+
+            <p>Реактивна складова:</p>
+            <p>$$ u_r = \frac{7.9 \cdot f \cdot \beta \cdot S' \cdot 10^{-3} \cdot a_p \cdot k_r \cdot k_q}{u_{в}} =
+                \frac{7.9 \cdot 50 \cdot 1.768 \cdot 833333.333 \cdot 10^{-3} \cdot 0.05 \cdot 0.98 \cdot 1}{21.956} =
+                5.878\% \tag{2.95} $$</p>
+
+            <p>Напруга короткого замикання:</p>
+            <p>$$ u'_k = \sqrt{u_a^2 + u_r^2} = \sqrt{0.945^2 + 5.878^2} = 5.953\% \tag{2.96} $$</p>
+
+            <p>Відхилення від заданого значення \( u_k = 6.5\% \):</p>
+            <p>$$ \Delta u = \frac{u'_k - u_k}{u_k} \cdot 100 = \frac{5.953 - 6.5}{6.5} \cdot 100 = -8.41\% \tag{2.97}
+                $$</p>
+
+        </div>
+        <h2>2.9 Розрахунок магнітної системи</h2>
+
+        <p>Приймаємо конструкцію трифазної плоскої магнітної системи зі сталі 3405 товщиною 0.30 мм, з косими стиками на
+            крайніх стрижнях та комбінованим на середньому. Стрижні скріплені бандажами та пластинами, ярма — балками і
+            напівбандажами. Кількість щаблів: стрижень — 7, ярмо — 6.</p>
+
+        <h3>Таблиця 2.2</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Пакети стрижня (мм)</th>
+                    <th>Пакети ярма (мм)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>295×28</td>
+                    <td>295×28</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>270×37</td>
+                    <td>270×37</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>250×18</td>
+                    <td>250×18</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>230×13</td>
+                    <td>230×13</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>215×8</td>
+                    <td>215×8</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>175×18</td>
+                    <td>175×30</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>135×12</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="formula">Активний переріз стрижня: \\( \Pi_c = k_з \cdot \Pi_{фс} = 0.96 \cdot 0.06446 = 0.06188 \,
+            \text{м}^2 \\)</div>
+        <div class="formula">Активний переріз ярма: \\( \Pi_я = k_з \cdot \Pi_{фя} = 0.96 \cdot 0.06542 = 0.0628 \,
+            \text{м}^2 \\)</div>
+        <div class="formula">Обʼєм сталі: \\( V_{у.ст} = k_з \cdot V_у = 0.96 \cdot 0.016336 = 0.01568 \, \text{м}^3 \\)
+        </div>
+        <div class="formula">Довжина стрижня: \\( l_c = l_1 + l_0' + l_0'' = 0.751 + 0.075 + 0.12 = 0.946 \, \text{м}
+            \\)</div>
+        <div class="formula">Відстань між осями: \\( C = D_3'' + a_{22} = 0.551 + 0.03 = 0.581 \, \text{м} \\)</div>
+        <div class="formula">Маса сталі в кутах: \\( G_у = V_{у.ст} \cdot \gamma_{ст} = 0.0157 \cdot 7650 = 119.972 \,
+            \text{кг} \\)</div>
+        <div class="formula">Маса ярма: \\( G_я = G'_я + G''_я = 1115.784 + 239.943 = 1355.727 \, \text{кг} \\)</div>
+        <div class="formula">Маса стрижнів: \\( G_c = 3 l_c \Pi_c \gamma_{ст} + 3 \Pi_c a_{1я} \gamma_{ст} - G_у =
+            1401.907 \, \text{кг} \\)</div>
+        <div class="formula">Повна маса сталі: \\( G_{ст} = G_я + G_c = 1355.727 + 1401.907 = 2757.635 \, \text{кг} \\)
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Розділ 3.2 – Тепловий розрахунок баку</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; line-height: 1.6; }
+        h1, h2 { color: #003366; }
+        p { margin: 0.5em 0; }
+        .formula { margin: 1em 0; font-weight: bold; }
+    </style>
+</head>
+<body>
+<h1>3.2 Тепловий розрахунок баку</h1>
+<p><strong>Мінімальна ширина баку:</strong></p>
+<p>$$ B = D''_3 + s_1 + s_2 + d_1 + s_3 + s_4 + d_2 = 0.551 + 0.05 + 0.05 + 0.02 + 0.033 + 0.033 + 0.02 = 0.757 	ext{ м} 	ag{3.10} $$</p>
+
+<p><strong>Ширина баку при центральному положенні в баку активної частини:</strong></p>
+<p>$$ B = D''_3 + 2(s_1 + s_2) + d_1 = 0.551 + 2(0.05 + 0.05) + 0.02 = 0.791 	ext{ м} \Rightarrow B = 0.8 	ext{ м} 	ag{3.11} $$</p>
+
+<p><strong>Довжина баку з урахуванням баку для РПН:</strong></p>
+<p>$$ A = 2 \cdot C + B + A_p = 2 \cdot 0.581 + 0.8 + 0.75 = 2.711 	ext{ м} \Rightarrow A = 2.72 	ext{ м} 	ag{3.12} $$</p>
+
+<p><strong>Висота активної частини:</strong></p>
+<p>$$ H_{{ач}} = l_c + 2 h_я + n = 0.946 + 2 \cdot 0.295 + 0.04 = 1.576 	ext{ м} 	ag{3.13} $$</p>
+
+<p><strong>Глибина баку:</strong></p>
+<p>$$ H_б = H_{{ач}} + H_{{як}} = 1.576 + 0.4 = 1.976 	ext{ м} \Rightarrow H_б = 1.98 	ext{ м} 	ag{3.14} $$</p>
+
+<p><strong>Периметр баку:</strong></p>
+<p>$$ P_б = 2(A + B) + \pi \cdot B = 2(2.72 + 0.8) + \pi \cdot 0.8 = 6.353 	ext{ м} 	ag{3.15} $$</p>
+
+<p><strong>Поверхня секції охолодника:</strong></p>
+<p>$$ \Pi_{{к.п}} = 16 \cdot 2 \cdot 2 \cdot l_п \cdot h_п = 16 \cdot 2 \cdot 2 \cdot 0.58 \cdot 1.6 = 59.392 	ext{ м}^2 	ag{3.16} $$</p>
+
+<p><strong>Загальна поверхня одного охолодника:</strong></p>
+<p>$$ \Pi_0 = \Pi_{{к.п}} + \Pi_{{к.к}} + \Pi_{{тс}} = 59.392 + 1.48 + 0.402 = 61.274 	ext{ м}^2 	ag{3.17} $$</p>
+
+<p><strong>Перевищення середньої температури масла:</strong></p>
+<p>$$ \Theta_{мс} = 65 - \Theta_{{омср2}} = 65 - 27.08 = 37.918^\circ C 	ag{3.18} $$</p>
+
+<p>$$ \Theta_{мсв} = 1.2 \cdot \Theta_{мс} = 1.2 \cdot 37.918 = 45.501^\circ C 	ag{3.19} $$</p>
+
+<p><strong>Середнє перевищення температури зовнішньої стінки баку:</strong></p>
+<p>$$ \Theta_{бп} = \Theta_{мс} - \Theta_{мб} - \Theta_з = 37.918 - 5 - 2 = 30.918^\circ C 	ag{3.20} $$</p>
+
+<p><strong>Поверхня конвекції гладкої стінки:</strong></p>
+<p>$$ \Pi_{{кгл}} = k_{{фгл}} \cdot H_б \cdot P_б = 1 \cdot 1.98 \cdot 6.353 = 12.579 	ext{ м}^2 	ag{3.21} $$</p>
+
+<p><strong>Приблизна поверхня випромінювання:</strong></p>
+<p>$$ \Pi_в = k \cdot \Pi_{{кгл}} = 1.5 \cdot 12.579 = 18.869 	ext{ м}^2 	ag{3.22} $$</p>
+
+<p><strong>Приблизна необхідна поверхня конвекції:</strong></p>
+<p>$$ \Pi'_к = rac{1.05(P_к + P_х)}{1.25 \cdot 2.5 \cdot \Theta_{бп}} - 1.12 \cdot \Pi_в = 139.508 	ext{ м}^2 	ag{3.23} $$</p>
+
+<p><strong>Поверхня конвекції кришки:</strong></p>
+<p>$$ \Pi_{{ккр}} = 0.5 \cdot k_{{фкр}} \cdot \left[(A - B)^2 + (B + 0.16)^2 \cdot \pi ight] = 1.284 	ext{ м}^2 	ag{3.24} $$</p>
+
+<p><strong>Поверхня конвекції радіаторів:</strong></p>
+<p>$$ \sum \Pi_{{кр}} = \Pi'_к - \Pi_{{ккр}} - \Pi_{{кгл}} = 139.508 - 1.284 - 12.579 = 125.645 	ext{ м}^2 	ag{3.25} $$</p>
+
+<p><strong>Поверхня одного радіатора:</strong></p>
+<p>$$ \Pi_{{кр}} = k_{{фр}} \cdot \Pi_0 = 1 \cdot 61.274 = 61.274 	ext{ м}^2 	ag{3.26} $$</p>
+
+<p><strong>Кількість радіаторів:</strong></p>
+<p>$$ n_р = rac{\sum \Pi_{{кр}}}{\Pi_{{кр}}} = rac{125.645}{61.274} = 2.051 \Rightarrow n_р = 3 	ext{ шт} 	ag{3.27} $$</p>
+
+<p><strong>Поверхня конвекції баку:</strong></p>
+<p>$$ \Pi_{{кб}} = \Pi_{{кр}} \cdot n_р + \Pi_{{кгл}} + \Pi_{{ккр}} = 61.274 \cdot 3 + 12.579 + 1.284 = 197.685 	ext{ м}^2 	ag{3.28} $$</p>
+
+<p><strong>Поверхня випромінення баку з радіаторами:</strong></p>
+<p>$$ P_{{вбр}} = 2(1 + 2.23)(3.62 + 2.42) \cdot 1.287 = 41.592 	ext{ м}^2 $$</p>
+</body>
+</html>

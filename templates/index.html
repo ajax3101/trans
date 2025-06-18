@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор трансформатора</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body { font-family: sans-serif; margin: 2rem; }
+        form { margin-bottom: 2rem; }
+        label { display: block; margin-top: 1rem; }
+        input { padding: 0.3em; width: 100px; }
+        .result-block { background: #f8f8f8; padding: 1em; margin-top: 2rem; border-left: 5px solid #4caf50; }
+    </style>
+</head>
+<body>
+    <h1>Калькулятор параметрів трансформатора ТМН-2500/35-У1</h1>
+
+    <form method="post">
+        <label>S (кВА): <input type="number" step="any" name="S" value="2500"></label>
+        <label>m (фази): <input type="number" step="any" name="m" value="3"></label>
+        <label>U₁ (В): <input type="number" step="any" name="U1" value="11000"></label>
+        <label>U₂ (В): <input type="number" step="any" name="U2" value="13800"></label>
+        <label>uₖ (%): <input type="number" step="any" name="uk" value="6.5"></label>
+        <label>pₖ (Вт): <input type="number" step="any" name="pk" value="25000"></label>
+        <button type="submit">Обчислити</button>
+    </form>
+
+    {% if result %}
+    <div class="result-block">
+        <p>$$ S_ф = \frac{S \cdot 10^3}{m} = {{ result.Sf }} \, \text{ВА} $$</p>
+        <p>$$ I_1 = \frac{S \cdot 10^3}{\sqrt{3} \cdot U_1} = {{ result.I1 }} \, \text{А} $$</p>
+        <p>$$ I_2 = \frac{S \cdot 10^3}{\sqrt{3} \cdot U_2} = {{ result.I2 }} \, \text{А} $$</p>
+        <p>$$ U_{ф2} = \frac{U_2}{\sqrt{3}} = {{ result.Uf2 }} \, \text{В} $$</p>
+        <p>$$ u_a = \frac{p_k}{10 \cdot S} = {{ result.ua }} \, \% $$</p>
+        <p>$$ u_r = \sqrt{u_k^2 - u_a^2} = {{ result.ur }} \, \% $$</p>
+    </div>
+    {% endif %}
+</body>
+</html>
