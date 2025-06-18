@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% block title %}2.1 Визначення основних параметрів{% endblock %}
+
+{% block content %}
 <h2 class="mt-5">Розділ 2.4 – Розрахунок регулювальної обмотки (РО)</h2>
 <div class="bg-white p-4 shadow-sm rounded">
 
@@ -150,3 +154,7 @@
     <p>$$ G_{д3} = 1.025 \cdot G_{о3} = 1.025 \cdot 51.359 = 52.643\, \text{кг} \tag{2.63} $$</p>
 
 </div>
+
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_2_3", "section_2_5") }}
+{% endblock %}

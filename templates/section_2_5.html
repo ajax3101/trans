@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% block title %}2.1 Визначення основних параметрів{% endblock %}
+
+{% block content %}
 <h2 class="mt-5">Розділ 2.5 – Розрахунок втрат короткого замикання</h2>
 <div class="bg-white p-4 shadow-sm rounded">
 
@@ -46,3 +50,7 @@
         $$</p>
 
 </div>
+
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_2_4", "section_2_6") }}
+{% endblock %}

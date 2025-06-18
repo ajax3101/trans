@@ -1,3 +1,8 @@
+
+{% extends "base.html" %}
+{% block title %}2.1 Визначення основних параметрів{% endblock %}
+
+{% block content %}
 <h2 class="mt-5">Розділ 2.6 – Розрахунок напруги короткого замикання</h2>
 <div class="bg-white p-4 shadow-sm rounded">
 
@@ -36,3 +41,7 @@
     <p>$$ \Delta u = \frac{u'_k - u_k}{u_k} \cdot 100 = \frac{5.953 - 6.5}{6.5} \cdot 100 = -8.41\% \tag{2.97} $$</p>
 
 </div>
+
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_2_5", "section_2_7") }}
+{% endblock %}

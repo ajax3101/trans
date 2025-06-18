@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="uk">
+{% extends "base.html" %}
+{% block title %}2.1 Визначення основних параметрів{% endblock %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>3.1 Тепловий розрахунок обмоток</title>
-  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
-</head>
-
-<body>
+{% block content %}
   <h2>3.1 Тепловий розрахунок обмоток</h2>
 
-  <p>Товщина ізоляції дроту на одну сторону: \( \delta = 250 \cdot 10^{-6} \, ext{м} \)</p>
-  <p>Теплопровідність паперової ізоляції: \( \lambda_{из} = 0.17 \, ext{Вт/(м \cdot ^\circ C)} \)</p>
+  <p>Товщина ізоляції дроту на одну сторону: \( \delta = 250 \cdot 10^{-6} \, 	\text{м} \)</p>
+  <p>Теплопровідність паперової ізоляції: \( \lambda_{из} = 0.17 \, 	\text{Вт/(м \cdot ^\circ C)} \)</p>
 
   <h3>Внутрішні перепади температур</h3>
   <p>Обмотка НН:
@@ -48,6 +41,6 @@
   <p>PO:
     $$ \Theta_{омср3} = \Theta_{о3} + \Theta_{ом3} = 0.375 + 7.919 = 8.29 \, ^\circ C $$</p>
 
-</body>
-
-</html>
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_2_12", "section_3_2") }}
+{% endblock %}

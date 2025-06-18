@@ -33,11 +33,18 @@ def index():
             }
         except:
             result = {"error": "Помилка обчислення. Перевірте введені значення."}
-    return render_template("index_2.html", result=result)
+    return render_template("section_1_1.html", result=result)
 
 @app.route("/details")
 def details():
     return render_template("calc_details.html")
+
+@app.route("/section/<name>")
+def section(name):
+    try:
+        return render_template(f"{name}.html")
+    except:
+        return "Шаблон не знайдено", 404
 
 if __name__ == "__main__":
     os.makedirs("static", exist_ok=True)

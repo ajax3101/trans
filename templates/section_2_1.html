@@ -1,20 +1,7 @@
+{% extends "base.html" %}
+{% block title %}2.1 Визначення основних параметрів{% endblock %}
 
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Розділ 2.1 — Визначення основних параметрів</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <style>
-        body { font-family: "Arial", sans-serif; line-height: 1.6; max-width: 800px; margin: 2rem auto; padding: 1rem; }
-        h2 { color: #2c3e50; }
-        p { margin: 1em 0; }
-    </style>
-</head>
-<body>
+{% block content %}
 <h2>2.1 Визначення основних параметрів</h2>
 
 <p>Діаметр стрижня:</p>
@@ -41,5 +28,6 @@
 <p>ЕРС одного витка:</p>
 <p>$$ u_в = 4.44 \cdot f \cdot \Pi_c \cdot B_c = 4.44 \cdot 50 \cdot 0.0619 \cdot 1.6 = 21.98 \ \text{В} \quad \text{(2.8)} $$</p>
 
-</body>
-</html>
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_1_4", "section_2_2") }}
+{% endblock %}

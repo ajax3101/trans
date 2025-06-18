@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% block title %}2.1 Визначення основних параметрів{% endblock %}
+
+{% block content %}
 <h2 class="mt-5">Розділ 2.7 – Оцінка динамічної стійкості обмоток при короткому замиканні</h2>
 <div class="bg-white p-4 shadow-sm rounded">
 
@@ -33,3 +37,7 @@
         0.05} = 4.087 \cdot 10^6\, \text{Па} \tag{2.105} $$</p>
 
 </div>
+
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_2_6", "section_2_8") }}
+{% endblock %}

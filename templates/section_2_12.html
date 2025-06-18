@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="uk">
+{% extends "base.html" %}
+{% block title %}2.1 Визначення основних параметрів{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>2.12 Векторна діаграма трансформатора</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-</head>
-
-<body>
+{% block content %}
     <h2>2.12 Векторна діаграма трансформатора</h2>
 
     <p>Коефіцієнт трансформації фазний:</p>
@@ -72,7 +65,7 @@
         168.522^\circ \tag{2.157} $$</p>
 
 
-     <h1>Розділ 2.12 (частина b): Розрахунок характеристик при зміні навантаження</h1>
+     <h1>Розділ 2.12 Розрахунок характеристик при зміні навантаження</h1>
 
     <h2>Формули (2.158)–(2.167)</h2>
 
@@ -223,20 +216,10 @@
         </tr>
     </table>
 
-    <h2>Графіки</h2>
-    <p><strong>Рисунок 2.3:</strong> Зовнішні характеристики у відсотках</p>
-    <img src="graph_2_3.png" alt="Графік 2.3">
-
-    <p><strong>Рисунок 2.4:</strong> Падіння напруги у відсотках</p>
-    <img src="graph_2_4.png" alt="Графік 2.4">
-
-    <p><strong>Рисунок 2.5:</strong> Зовнішні характеристики у вольтах</p>
-    <img src="graph_2_5.png" alt="Графік 2.5">
-
-    <p><strong>Рисунок 2.6:</strong> Падіння напруги у вольтах</p>
-    <img src="graph_2_6.png" alt="Графік 2.6">
+ 
 
 
-</body>
 
-</html>
+{% from "nav_buttons.html" import nav %}
+{{ nav("section_2_11", "section_3_1") }}
+{% endblock %}
