@@ -1,36 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <title>Розділи 3.3 та 3.4</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
-        body {{ font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }}
-        .formula {{ background: #f4f4f4; padding: 10px; border-left: 4px solid #0074D9; margin: 20px 0; }}
+        body {
+                {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+                line-height: 1.6;
+            }
+        }
+
+        .formula {
+                {
+                background: #f4f4f4;
+                padding: 10px;
+                border-left: 4px solid #0074D9;
+                margin: 20px 0;
+            }
+        }
     </style>
 </head>
+
 <body>
     <h2>3.3 Перевищення температури масла та обмоток над температурою навколишнього середовища</h2>
-    <p>$$ \Theta_{{бв}} = \left[1.05(P_к + P_х) + 2.8 P_{{вбр}} \cdot 2.5 \Pi_{{кб}}\right]^{0.8} = 22.111 \, ^\circ C \tag{3.30} $$</p>
-    <p>$$ \Theta_{{мб}} = 0.165 k_д \left[ \frac{1.05(P_к + P_х)}{n_p \Pi_0 H_б P_б} + \Pi_{{ккр}} \right]^{0.6} = 3.31 \, ^\circ C \tag{3.31} $$</p>
+    <p>$$ \Theta_{{бв}} = \left[1.05(P_к + P_х) + 2.8 P_{{вбр}} \cdot 2.5 \Pi_{{кб}}\right]^{0.8} = 22.111 \, ^\circ C
+        \tag{3.30} $$</p>
+    <p>$$ \Theta_{{мб}} = 0.165 k_д \left[ \frac{1.05(P_к + P_х)}{n_p \Pi_0 H_б P_б} + \Pi_{{ккр}} \right]^{0.6} = 3.31
+        \, ^\circ C \tag{3.31} $$</p>
     <p>$$ \Theta_{{мп}} = \Theta_{{бв}} + \Theta_{{мб}} = 25.421 \, ^\circ C \tag{3.32} $$</p>
     <p>$$ \Theta_{{мвп}} = 1.2 \cdot \Theta_{{мп}} = 30.505 \, ^\circ C < 60 \, ^\circ C \tag{3.33} $$</p>
-    <p>$$ \Theta_{{оп1}} = \Theta_{{мп}} + \Theta_{{ом1}} + \Theta_1 = 43.8 \, ^\circ C < 65 \, ^\circ C \tag{3.34} $$</p>
-    <p>$$ \Theta_{{оп2}} = \Theta_{{мп}} + \Theta_{{ом2}} + \Theta_2 = 52.5 \, ^\circ C < 65 \, ^\circ C \tag{3.35} $$</p>
-    <p>$$ \Theta_{{оп3}} = \Theta_{{мп}} + \Theta_{{ом3}} + \Theta_3 = 33.7 \, ^\circ C < 65 \, ^\circ C \tag{3.36} $$</p>
+            <p>$$ \Theta_{{оп1}} = \Theta_{{мп}} + \Theta_{{ом1}} + \Theta_1 = 43.8 \, ^\circ C < 65 \, ^\circ C
+                    \tag{3.34} $$</p>
+                    <p>$$ \Theta_{{оп2}} = \Theta_{{мп}} + \Theta_{{ом2}} + \Theta_2 = 52.5 \, ^\circ C < 65 \, ^\circ C
+                            \tag{3.35} $$</p>
+                            <p>$$ \Theta_{{оп3}} = \Theta_{{мп}} + \Theta_{{ом3}} + \Theta_3 = 33.7 \, ^\circ C < 65 \,
+                                    ^\circ C \tag{3.36} $$</p>
 
-    <h2>3.4 Знаходження приблизної маси конструкційних матеріалів та масла трансформатора</h2>
-    <p>$$ G_к = 0.15(G_{{д1}} + G_{{д2}} + G_{{д3}}) = 130.32 \, \text{кг} \tag{3.37} $$</p>
-    <p>$$ G_{{ач}} = 1.2(G_{{д1}} + G_{{д2}}) + G_{{д3}} + G_к + G_{{в1}} + 10 G_{{в2}} + G_{{ст}} = 4529.13 \, \text{кг} \tag{3.38} $$</p>
-    <p>$$ G'_{{стр}} = 16 \cdot 2^2 \cdot \gamma_{{ст}} \cdot \delta_{cp} \cdot l_п \cdot h_п = 233.114 \, \text{кг} \tag{3.39} $$</p>
-    <p>$$ G_{{бкр}} = \gamma_{{ст}} \left[ 4 \Pi_{{ккр}}(b_{{кр}} + b_д) + H_б P_б b_{{гл}} \right] = 309.33 \, \text{кг} \tag{3.40} $$</p>
-    <p>$$ V_б = (A - B)(B + \frac{\pi B^2}{4})H_б = 4.04 \, \text{м}^3 \tag{3.41} $$</p>
-    <p>$$ V_а = \frac{G_{{ач}}}{\gamma_{{ач}}} = 0.81 \, \text{м}^3 \tag{3.42} $$</p>
-    <p>$$ G_{{мр}} = [2n_р(0.016 b_п h_п) + 16(1.04 \cdot 0.09^2)] \gamma_м = 85.303 \, \text{кг} \tag{3.43} $$</p>
-    <p>$$ G_p = 0.095(V_б - V_а)\gamma_м = 275.974 \, \text{кг} \tag{3.44} $$</p>
-    <p>$$ G_м = 1.1 \gamma_м(V_б - V_а) + G_{{мр}} + G_p = 3592.89 \, \text{кг} \tag{3.45} $$</p>
-    <p>$$ G_т = G_{{ач}} + G_{{бкр}} + G_м + G_H + 1.05 \cdot 3 G_{{yнн}} + 1.25 \cdot 3 G_{{yвн}} + G_{{шк}} + 4G_к = 8804.427 \, \text{кг} \tag{3.46} $$</p>
+                                    <h2>3.4 Знаходження приблизної маси конструкційних матеріалів та масла
+                                        трансформатора</h2>
+                                    <p>$$ G_к = 0.15(G_{{д1}} + G_{{д2}} + G_{{д3}}) = 130.32 \, \text{кг} \tag{3.37} $$
+                                    </p>
+                                    <p>$$ G_{{ач}} = 1.2(G_{{д1}} + G_{{д2}}) + G_{{д3}} + G_к + G_{{в1}} + 10 G_{{в2}}
+                                        + G_{{ст}} = 4529.13 \, \text{кг} \tag{3.38} $$</p>
+                                    <p>$$ G'_{{стр}} = 16 \cdot 2^2 \cdot \gamma_{{ст}} \cdot \delta_{cp} \cdot l_п
+                                        \cdot h_п = 233.114 \, \text{кг} \tag{3.39} $$</p>
+                                    <p>$$ G_{{бкр}} = \gamma_{{ст}} \left[ 4 \Pi_{{ккр}}(b_{{кр}} + b_д) + H_б P_б
+                                        b_{{гл}} \right] = 309.33 \, \text{кг} \tag{3.40} $$</p>
+                                    <p>$$ V_б = (A - B)(B + \frac{\pi B^2}{4})H_б = 4.04 \, \text{м}^3 \tag{3.41} $$</p>
+                                    <p>$$ V_а = \frac{G_{{ач}}}{\gamma_{{ач}}} = 0.81 \, \text{м}^3 \tag{3.42} $$</p>
+                                    <p>$$ G_{{мр}} = [2n_р(0.016 b_п h_п) + 16(1.04 \cdot 0.09^2)] \gamma_м = 85.303 \,
+                                        \text{кг} \tag{3.43} $$</p>
+                                    <p>$$ G_p = 0.095(V_б - V_а)\gamma_м = 275.974 \, \text{кг} \tag{3.44} $$</p>
+                                    <p>$$ G_м = 1.1 \gamma_м(V_б - V_а) + G_{{мр}} + G_p = 3592.89 \, \text{кг}
+                                        \tag{3.45} $$</p>
+                                    <p>$$ G_т = G_{{ач}} + G_{{бкр}} + G_м + G_H + 1.05 \cdot 3 G_{{yнн}} + 1.25 \cdot 3
+                                        G_{{yвн}} + G_{{шк}} + 4G_к = 8804.427 \, \text{кг} \tag{3.46} $$</p>
 </body>
+
 </html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>1.3 Конструктивні параметри</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body {{ font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }}
+        h2 {{ color: #003366; }}
+        p {{ margin: 0 0 1em 0; }}
+    </style>
+</head>
+<body>
+<h2>1.3 Конструктивні параметри оптимізаційного розрахунку</h2>
+
+<p>Ширина приведеного каналу розсіювання:</p>
+<p>$$ a_р = a_{12} + a_{об12}  \tag{1.10} $$</p>
+
+<p>Попередня ширина двох обмоток:</p>
+<p>$$ a_{об12} = k \cdot 10^{-2} \cdot \frac{{4 \cdot S'}}{{10^3}} = 0.03 \ \text{м}  \tag{1.11} $$</p>
+
+<p>$$ a_р = 0.027 + 0.03 = 0.057 \ \text{м} $$</p>
+
+<p>Активна складова напруги короткого замикання:</p>
+<p>$$ u_a = \frac{{p_k}}{{10 \cdot S}} = \frac{{25000}}{{10 \cdot 2500}} = 1\%  \tag{1.12} $$</p>
+
+<p>Реактивна складова напруги короткого замикання:</p>
+<p>$$ u_p = \sqrt{u_k^2 - u_a^2} = \sqrt{6.52^2 - 1^2} = 6.423\%  \tag{1.13} $$</p>
+
+<p>Коефіцієнт заповнення сталлю:</p>
+<p>$$ k_c = k_з \cdot k_{кр} = 0.96 \cdot 0.912 = 0.876  \tag{1.14} $$</p>
+
+<p>Індукція у ярмі:</p>
+<p>$$ B_я = \frac{B_c}{k_я} = \frac{1.6}{1.015} = 1.576 \ \text{Тл}  \tag{1.15} $$</p>
+
+<p>Індукція в зазорі на косому стику:</p>
+<p>$$ B'_з = \frac{B_c}{2} = \frac{1.6}{2} = 1.131 \ \text{Тл}  \tag{1.16} $$</p>
+
+<p>Індукція в зазорі на прямому стику:</p>
+<p>$$ B''_з = B_c = 1.6 \ \text{Тл}  \tag{1.17} $$</p>
+
+<p>Основні коефіцієнти попереднього розрахунку:</p>
+<p>$$ A = \frac{0.507 \cdot 4 \cdot S' \cdot a_p \cdot k_p}{f \cdot u_p \cdot B_c^2 \cdot k_c^2 \cdot 10^3} = 0.262  \tag{1.18} $$</p>
+
+<p>$$ A_1 = 5.663 \cdot 10^4 \cdot k_c \cdot A^3 \cdot a = 1244.827 \ \text{кг}  \tag{1.19} $$</p>
+
+<p>$$ A_2 = 3.605 \cdot 10^4 \cdot k_c \cdot A^2 \cdot l_0 = 210.841 \ \text{кг}  \tag{1.20} $$</p>
+
+<p>$$ B_1 = 2.4 \cdot 10^4 \cdot k_c \cdot k_я \cdot A^3 \cdot (a \cdot b + e') = 829.987 \ \text{кг}  \tag{1.21} $$</p>
+
+<p>$$ B_2 = 2.4 \cdot 10^4 \cdot k_c \cdot k_я \cdot A^2 \cdot (a_{12} + a_{22}) = 83.291 \ \text{кг}  \tag{1.22} $$</p>
+
+<p>$$ C_1 = \frac{2.46 \cdot 10^{-2} \cdot S^2 \cdot a}{k_d \cdot k_c^2 \cdot B_c^2 \cdot u_a \cdot A^2} = 996.18 \ \text{кг}  \tag{1.23} $$</p>
+
+<p>$$ k_{к.з} = 2 \cdot \left[1 - e^{-\pi \cdot u_a / u_p} \right] \cdot (u_k + u_p) = 35.098  \tag{1.24} $$</p>
+
+<p>$$ M = 0.244 \cdot 10^{-6} \cdot k_{к.з}^2 \cdot k_d \cdot k_p = 17.532 \ \text{МПа}  \tag{1.25} $$</p>
+
+<p>$$ B = \frac{A_2 + B_2}{3 B_1} = 0.236  \tag{1.26} $$</p>
+
+<p>$$ C = \frac{A_1}{3 B_1} = 0.5  \tag{1.27} $$</p>
+
+<p>$$ D = \frac{C_1}{B_1} \cdot \frac{k_{ос} \cdot k_{ир}}{3} = 1.857  \tag{1.28} $$</p>
+
+<p>$$ F_{цел} = \frac{B_1 x^3 + B_2 x^2 + A_2 x + (k_{ир} \cdot k_{ос}) x + C_1 x^2}{A_1} = 4482.355  \tag{1.29} $$</p>
+
+<p>$$ 5 B x^4 + C x - D = 0  \tag{1.30} $$</p>
+
+<p>$$ \beta_{min} = 4 / x = 1.754  \tag{1.31} $$</p>
+
+<p>$$ x_j = 4.5 \cdot 10^6 \cdot 2.4 \cdot 10^{-12} = 1.467  \tag{1.32} $$</p>
+
+<p>$$ x_\sigma = \frac{3 M}{60} = \frac{3 \cdot 17.532}{60} = 1.507  \tag{1.33} $$</p>
+
+</body>
+</html>

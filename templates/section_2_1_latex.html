@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Розділ 2.1 — Визначення основних параметрів</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <style>
+        body { font-family: "Arial", sans-serif; line-height: 1.6; max-width: 800px; margin: 2rem auto; padding: 1rem; }
+        h2 { color: #2c3e50; }
+        p { margin: 1em 0; }
+    </style>
+</head>
+<body>
+<h2>2.1 Визначення основних параметрів</h2>
+
+<p>Діаметр стрижня:</p>
+<p>$$ d = A \cdot 4 \cdot \beta = 0.262 \cdot 4 \cdot 1.8 = 0.303 \ \text{м} \quad \text{(2.1)} $$</p>
+
+<p>Приймаємо нормалізоване значення $$ d = 0.3 \ \text{м}, $$ після чого перераховуємо:</p>
+<p>$$ \beta = \left( \frac{d}{A} \right)^4 = \left( \frac{0.3}{0.262} \right)^4 = 1.726 \quad \text{(2.2)} $$</p>
+
+<p>Середній діаметр обмоток:</p>
+<p>$$ d_{12} = a \cdot d = 1.4 \cdot 0.3 = 0.42 \ \text{м} \quad \text{(2.3)} $$</p>
+
+<p>Активний переріз стрижня:</p>
+<p>$$ \Pi_c = k_z \cdot \Pi_{\phi c} = 0.96 \cdot 0.06446 = 0.0619 \ \text{м}^2 \quad \text{(2.4)} $$</p>
+
+<p>Висота обмоток:</p>
+<p>$$ l = \frac{\pi \cdot d_{12}}{\beta} = \frac{\pi \cdot 0.42}{1.726} = 0.765 \ \text{м} \quad \text{(2.5)} $$</p>
+
+<p>Висота стрижня:</p>
+<p>$$ l_c = l + l'_0 + l''_0 = 0.765 + 0.075 + 0.12 = 0.96 \ \text{м} \quad \text{(2.6)} $$</p>
+
+<p>Середня відстань між осями стрижнів:</p>
+<p>$$ C = d_{12} + a_{12} + a_{22} + b \cdot d = 0.42 + 0.027 + 0.03 + 0.36 \cdot 0.3 = 0.585 \ \text{м} \quad \text{(2.7)} $$</p>
+
+<p>ЕРС одного витка:</p>
+<p>$$ u_в = 4.44 \cdot f \cdot \Pi_c \cdot B_c = 4.44 \cdot 50 \cdot 0.0619 \cdot 1.6 = 21.98 \ \text{В} \quad \text{(2.8)} $$</p>
+
+</body>
+</html>
