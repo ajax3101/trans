@@ -1,8 +1,14 @@
 
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, send_file
+import tempfile
+from natsort import natsorted
+import pdfkit
 import os
 
+
 app = Flask(__name__)
+config = pdfkit.configuration(wkhtmltopdf='/usr/local/bin/wkhtmltopdf')
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -35,13 +41,16 @@ def index():
             result = {"error": "Помилка обчислення. Перевірте введені значення."}
     return render_template("section_1_1.html", result=result)
 
+
 @app.route("/details")
 def details():
     return render_template("section_4_1.html")
 
+
 @app.route("/section/section_1_1", methods=["GET"])
 def section_1_1_view():
     return redirect(url_for('index'))
+
 
 @app.route("/section/<name>", methods=["GET", "POST"])
 def section(name):
@@ -52,6 +61,70 @@ def section(name):
     except Exception as e:
         print(f"[ERROR] Failed to load template '{template_file}': {e}")
         return f"Шаблон не знайдено: {template_file}", 404
+
+
+def get_existing_sections():
+    templates_dir = 'templates'
+    return sorted([
+        f'section/{f.replace(".html", "")}'
+        for f in os.listdir(templates_dir)
+        if f.startswith('section_') and f.endswith('.html')
+    ])
+
+
+@app.route('/export_all', methods=['GET', 'POST'])
+def export_all():
+    if request.method == 'POST':
+        sections = get_existing_sections()
+
+        base_url = request.host_url.rstrip('/')
+        urls = [f"{base_url}/{section}" for section in sorted(sections)]
+
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as f:
+            tmp_path = f.name
+
+        options = {
+            'javascript-delay': 3000,
+            'enable-local-file-access': None,
+            'window-status': 'katex-done',
+            'no-stop-slow-scripts': '',
+        }
+
+        pdfkit.from_url(urls, tmp_path, options=options, configuration=config)
+
+        return send_file(tmp_path, as_attachment=True, download_name="all_sections.pdf")
+
+    return "Метод не дозволений", 405
+
+@app.route('/export/<name>', methods=['POST'])
+def export_section(name):
+    try:
+        # Проверяем, существует ли шаблон
+        template_file = f"{name}.html"
+        if not os.path.exists(os.path.join("templates", template_file)):
+            return f"Шаблон {template_file} не знайдено", 404
+
+        # Формируем правильный URL
+        page_url = f"{request.host_url.rstrip('/')}/section/{name}"
+
+        # Временный файл для PDF
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as f:
+            tmp_path = f.name
+
+        options = {
+            'javascript-delay': 3000,
+            'enable-local-file-access': None,
+            'window-status': 'katex-done',
+            'no-stop-slow-scripts': '',
+        }
+
+        pdfkit.from_url(page_url, tmp_path, options=options, configuration=config)
+
+        return send_file(tmp_path, as_attachment=True, download_name=f"{name}.pdf")
+
+    except Exception as e:
+        print(f"[ERROR] Failed to generate PDF for {name}: {e}")
+        return "Помилка формування PDF", 500
 
 if __name__ == "__main__":
     os.makedirs("static", exist_ok=True)
